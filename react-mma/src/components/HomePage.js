@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState, UseEffect } from 'react'
+import FighterContainer from './FighterContainer'
+import { Routes, Route } from "react-router-dom";
 
 
 const HomePage = () => {
@@ -12,6 +14,16 @@ const HomePage = () => {
      })()   
     }, [])
     console.log(data)
+    return (
+        <div>
+        <Routes>
+            <Route path= '/'> 
+                <FighterContainer/>
+            </Route>
+        </Routes>
+        </div>
+    )
+
 }
 
 
