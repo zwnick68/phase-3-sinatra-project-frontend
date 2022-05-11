@@ -1,13 +1,15 @@
-import {React, useState} from 'react'
+import {React, useEffect, useState} from 'react'
 import Manager from './Manager.js'
 const ManagerContainer = () => {
     let [managers, setManagers] = useState([])
-    const request = async () => {
-        let req = await fetch ('http://localhost:9292')
+    useEffect(() => {
+        (async() => {
+        let req = await fetch ('http://localhost:9292/managers')
         let res = await req.json()
         setManagers(res)
-    }
-request()
+    })()
+    }, [])
+
     return (
         <div>
             {managers.map((element) => {

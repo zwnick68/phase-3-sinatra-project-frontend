@@ -1,13 +1,15 @@
-import {React, useState} from 'react'
+import {React, useState,useEffect} from 'react'
 import Fighter from './Fighter.js'
 const FighterContainer = () => {
-    let [fighters, setFighters] = useState([])
-    const request = async () => {
-        let req = await fetch ('http://localhost:9292')
-        let res = await req.json()
-        setFighters(res)
-    }
-request()
+    const [fighters, setFighters] = useState()
+    useEffect(() => {
+        (async() => {
+            let req = await fetch('http://localhost:9292/')
+            let res = await req.json()
+            setFighters(res)
+        })()   
+       }, [])
+       console.log(fighters)
     return (
         <div>
             {fighters.map((element) => {

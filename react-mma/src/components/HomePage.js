@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useState, UseEffect } from 'react'
+import { useState } from 'react'
 import FighterContainer from './FighterContainer'
 import ManagerContainer from './ManagerContainer';
 import PromotionContainer from './PromotionContainer';
@@ -8,16 +8,16 @@ import { Switch, Route } from "react-router-dom";
 
 
 const HomePage = () => {
-    let [data, setData] = useState([])
+    // let [data, setData] = useState([])
     let [page, setPage] = useState('/')
-    useEffect(() => {
-     (async() => {
-         let req = await fetch('http://localhost:9292')
-         let res = req.json()
-         setData(res)
-     })()   
-    }, [])
-    console.log(data)
+    // useEffect(() => {
+    //  (async() => {
+    //      let req = await fetch('http://localhost:9292/')
+    //      let res = req.json()
+    //      setData(res)
+    //  })()   
+    // }, [])
+    // console.log(data)
     return (
         <div>
         <NavBar onPageChange={setPage}/>
