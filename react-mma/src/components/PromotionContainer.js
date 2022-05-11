@@ -9,13 +9,12 @@ const PromotionContainer = () => {
         setPromotion(res.promotions)
     })()
     }, [])
+
+    console.log(promotion)
     return (
         <div>
-            {promotion.map((element) => {
-                return(
-                    <Promotion element={element} />
-                )
-            })}
+            
+                
         </div>
     )}
 export default PromotionContainer
