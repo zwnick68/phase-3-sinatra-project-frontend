@@ -25,10 +25,10 @@ const HomePage = () => {
             <Route  exact path= '/'> 
                 <FighterContainer/>
             </Route>
-            <Route path= '/Managers'>
+            <Route path= '/managers'>
                 <ManagerContainer/>
             </Route>
-            <Route path= '/Promotions'>
+            <Route path= '/promotions'>
                 <PromotionContainer/>
             </Route>
         </Switch>
