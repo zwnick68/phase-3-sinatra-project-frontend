@@ -6,9 +6,10 @@ const ManagerContainer = () => {
         (async() => {
         let req = await fetch ('http://localhost:9292/managers')
         let res = await req.json()
-        setManagers(res)
+        setManagers(res.managers)
     })()
     }, [])
+    console.log(managers)
 
     return (
         <div>

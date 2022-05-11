@@ -6,7 +6,7 @@ const PromotionContainer = () => {
         (async() => {
         let req = await fetch ('http://localhost:9292/promotions')
         let res = await req.json()
-        setPromotion(res)
+        setPromotion(res.promotions)
     })()
     }, [])
     return (
