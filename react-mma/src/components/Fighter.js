@@ -1,6 +1,18 @@
 import {React, useState} from 'react'
 
 const Fighter = ({element,setFighters}) => {
+    const [fighterUpdate, setFighterUpdate] = useState({
+        name: '',
+        height: 0,
+        reach: 0,
+        weightclass: '',
+        wins: 0,
+        losses: 0,
+        draws: 0,
+        image: ''
+
+
+    })
     
     const deleteFighter = async () => {
        let req = await fetch(`http://localhost:9292/${element.id}`, {
@@ -25,6 +37,31 @@ const Fighter = ({element,setFighters}) => {
             <h3>Height: {element.height}in. Reach: {element.reach}in.</h3>
             <h3>Record: {element.wins}-{element.losses}-{element.draws}</h3>
             <button onClick={deleteFighter}>Remove Fighter</button>
+            <form className="update-form" onSubmit={async(e)=>{
+                // e.preventDefault()
+                let req = await fetch(`http://localhost:9292/${element.id}`, {
+                    method: 'PATCH',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(fighterUpdate)
+                })
+                let res = req.json()
+                setFighterUpdate((prevState) => [...prevState, res])
+                setFighters((prevState) => [...prevState, res])
+            }}>
+               <input type="text" name="name" placeholder="name" onChange={(e)=>{setFighterUpdate({...fighterUpdate, name: e.target.value})}}/> 
+               <input type="text" name="height" placeholder="height" onChange={(e)=>{setFighterUpdate({...fighterUpdate, height: e.target.value})}}/>
+               <input type="text" name="reach" placeholder="reach" onChange={(e)=>{setFighterUpdate({...fighterUpdate, reach: e.target.value})}}/>
+               <input type="text" name="weightclass" placeholder="weightclass" onChange={(e)=>{setFighterUpdate({...fighterUpdate, weightclass: e.target.value})}}/>
+               <div>
+                    <input type="text" name="wins" placeholder="wins" onChange={(e)=>{setFighterUpdate({...fighterUpdate, wins: e.target.value})}}/>
+
+                    <input type="text" name="losses" placeholder="losses" onChange={(e)=>{setFighterUpdate({...fighterUpdate, losses: e.target.value})}}/>
+
+                    <input type="text" name="draws" placeholder="draws" onChange={(e)=>{setFighterUpdate({...fighterUpdate, draws: e.target.value})}}/>
+                </div>
+                <input type="text" name="image" placeholder="new image" onChange={(e)=>{setFighterUpdate({...fighterUpdate, image: e.target.value})}}/>
+                <button type="submit">UPDATE</button>
+            </form>
         </div>
     )
 }
