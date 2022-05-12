@@ -38,7 +38,7 @@ const Fighter = ({element,setFighters}) => {
             <h3>Record: {element.wins}-{element.losses}-{element.draws}</h3>
             <button onClick={deleteFighter}>Remove Fighter</button>
             <form className="update-form" onSubmit={async(e)=>{
-                // e.preventDefault()
+                e.preventDefault()
                 let req = await fetch(`http://localhost:9292/${element.id}`, {
                     method: 'PATCH',
                     headers: {'Content-Type': 'application/json'},
