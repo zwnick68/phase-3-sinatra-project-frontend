@@ -43,18 +43,7 @@ const Fighter = ({element,setFighters}) => {
             <h3>Record: {element.wins}-{element.losses}-{element.draws}</h3>
             <button onClick={deleteFighter}>Remove Fighter</button>
             {
-                updateModalVisible ? <form className="form" onSubmit={async(e)=>{
-                    e.preventDefault()
-                    let req = await fetch(`http://localhost:9292/fighters/${element.id}`, {
-                        method: 'PATCH',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify(fighterUpdate)
-                    })
-                    let res = req.json()
-                    setFighterUpdate((prevState) => [...prevState, res])
-                    setFighters((prevState) => [...prevState, res])
-                    toggleUpdate()
-                }}>
+                updateModalVisible ? 
                     <div className="form-div">
                         <video className="background-video" autoPlay muted loop poster=''>
                             <source src="../Weigh-in.mp4" type="video/mp4"></source>
@@ -72,14 +61,23 @@ const Fighter = ({element,setFighters}) => {
         
                         <input className="input" type="text" name="image" placeholder="new image" onChange={(e)=>{setFighterUpdate({...fighterUpdate, image: e.target.value})}}/>
                         <div className="bttn-div">
-                            <button type="submit">UPDATE</button>
+                            <button onClick={async()=>{
+                    
+                                let req = await fetch(`http://localhost:9292/fighters/${element.id}`, {
+                                    method: 'PATCH',
+                                    headers: {'Content-Type': 'application/json'},
+                                    body: JSON.stringify(fighterUpdate)
+                                })
+                                let res = req.json()
+                                setFighterUpdate(res)
+                                setFighters((prevState) => [...prevState, res])
+                                toggleUpdate()
+                            }}>UPDATE</button>
                             <button type="button" onClick={toggleUpdate}>BACK</button>
 
                         </div>  
                         
-                    </div>
-                
-                </form> : <button onClick={toggleUpdate}>UPDATE STATS</button>
+                    </div> : <button onClick={toggleUpdate}>UPDATE STATS</button>
             }
 
             
