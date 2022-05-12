@@ -1,17 +1,17 @@
-import {React,useState} from 'react'
+import {React} from 'react'
 
 const Manager = ({element}) => {
     return(
         <div>
             <h1>{element.name}</h1>
-            <img src={element.image} />
+            <img className='manager-images' src={element.image} />
             <h1>Fighters:</h1>
             {
                 element.fighters.map((el) =>{
                     return (
                         <div>
                             <h2>{el.name}</h2>
-                            <img src={el.image} />
+                            <img className='images' src={el.image} />
 
                         </div>
 
