@@ -79,10 +79,7 @@ const Fighter = ({element,setFighters}) => {
                         
                     </div>
                 
-                </form> : <button onClick={toggleUpdate((e)=> {
-                    e.preventDefault()
-                }
-                )}>UPDATE STATS</button>
+                </form> : <button onClick={toggleUpdate}>UPDATE STATS</button>
             }
 
             
