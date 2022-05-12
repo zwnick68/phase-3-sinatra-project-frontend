@@ -34,6 +34,8 @@ const FighterContainer = () => {
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(form)
                 })
+                let res = await req.json()
+                setFighters(prevState => [...prevState, res] )
             }}>
                 <div>
                     <h1>ADD A FIGHTER</h1>
