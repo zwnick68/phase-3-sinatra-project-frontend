@@ -15,9 +15,25 @@
 }
 
 h1 {
+  font-style: oblique;
   color: antiquewhite;
 }
 
 h3 {
   color:antiquewhite;
+  font-style: oblique;
+}
+
+.images {
+  width:200px;
+   height:300px;
+}
+.promotion-images {
+  width:400px;
+  height:400px;
+}
+
+.manager-images {
+  width:200px;
+  height:300px;
 }

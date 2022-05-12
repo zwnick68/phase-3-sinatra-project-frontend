@@ -32,7 +32,7 @@ const Fighter = ({element,setFighters}) => {
     return(
         <div>
             <h1>{element.name}</h1>
-            <img src={element.image}/>
+            <img className='images' src={element.image}/>
             <h3>{element.weightclass}</h3>
             <h3>Height: {element.height}in. Reach: {element.reach}in.</h3>
             <h3>Record: {element.wins}-{element.losses}-{element.draws}</h3>
@@ -59,7 +59,7 @@ const Fighter = ({element,setFighters}) => {
 
                     <input type="text" name="draws" placeholder="draws" onChange={(e)=>{setFighterUpdate({...fighterUpdate, draws: e.target.value})}}/>
                 </div>
-                <input type="text" name="image" placeholder="new image" onChange={(e)=>{setFighterUpdate({...fighterUpdate, image: e.target.value})}}/>
+                <input className='' type="text" name="image" placeholder="new image" onChange={(e)=>{setFighterUpdate({...fighterUpdate, image: e.target.value})}}/>
                 <button type="submit">UPDATE</button>
             </form>
         </div>

@@ -55,7 +55,7 @@ const FighterContainer = () => {
                         <input type="text" name="losses" placeholder="Losses" onChange={(e)=>{setForm({...form, losses: e.target.value})}}/> 
                         <input type="text" name="draws" placeholder="Draws" onChange={(e)=>{setForm({...form, draws: e.target.value})}}/>
                     </div> */}
-                    <input type="text" name="image" placeholder="Image Link" onChange={(e)=>{setForm({...form, image: e.target.value})}}/>
+                    <input className='' type="text" name="image" placeholder="Image Link" onChange={(e)=>{setForm({...form, image: e.target.value})}}/>
                 </div>
                 <button type="submit">UPLOAD</button>
 

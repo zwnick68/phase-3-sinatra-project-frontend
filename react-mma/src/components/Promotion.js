@@ -4,7 +4,7 @@ const Promotion = ({element}) => {
     return(
         <div>
             <h1>{element.name}</h1>
-            <img src={element.image} />
+            <img className='promotion-images' src={element.image} />
             {
                 element.fighters.map((el) => {
                     return (
