@@ -2,14 +2,14 @@ import {React, useState} from 'react'
 
 const Fighter = ({element,setFighters}) => {
     const [fighterUpdate, setFighterUpdate] = useState({
-        name: '',
-        height: 0,
-        reach: 0,
-        weightclass: '',
-        wins: 0,
-        losses: 0,
-        draws: 0,
-        image: ''
+        name: element.name,
+        height: element.height,
+        reach: element.reach,
+        weightclass: element.weightclass,
+        wins: element.wins,
+        losses: element.losses,
+        draws: element.draws,
+        image: element.image
 
 
     })
@@ -39,7 +39,7 @@ const Fighter = ({element,setFighters}) => {
             <h1>{element.name}</h1>
             <img className='images' src={element.image}/>
             <h3>{element.weightclass}</h3>
-            <h3>Height: {element.height}in. Reach: {element.reach}in.</h3>
+            <h3>Height: {element.height} in. Reach: {element.reach} in.</h3>
             <h3>Record: {element.wins}-{element.losses}-{element.draws}</h3>
             <button onClick={deleteFighter}>Remove Fighter</button>
             {
