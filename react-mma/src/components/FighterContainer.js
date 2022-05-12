@@ -51,16 +51,19 @@ const FighterContainer = () => {
                     setFighters((prevState) => [...prevState, res] )
                 }}>
                     <div>
-                        <input type="text" name="name" placeholder="Name" onChange={(e)=>{setForm({...form, name: e.target.value})}}/>
-                        <input type="text" name="height" placeholder="Height" onChange={(e)=>{setForm({...form, height: e.target.value})}}/>
-                        <input type="text" name="reach" placeholder="Reach" onChange={(e)=>{setForm({...form, reach: e.target.value})}}/>
-                        <input type="text" name="weightclass" placeholder="Weightclass" onChange={(e)=>{setForm({...form, weightclass: e.target.value})}}/>
+                    <video className="background-video" autoPlay muted loop poster=''>
+                        <source src="../champion.mp4" type="video/mp4"></source>
+                    </video>
+                        <input className="input" type="text" name="name" placeholder="Name" onChange={(e)=>{setForm({...form, name: e.target.value})}}/>
+                        <input className="input" type="text" name="height" placeholder="Height" onChange={(e)=>{setForm({...form, height: e.target.value})}}/>
+                        <input className="input" type="text" name="reach" placeholder="Reach" onChange={(e)=>{setForm({...form, reach: e.target.value})}}/>
+                        <input className="input" type="text" name="weightclass" placeholder="Weightclass" onChange={(e)=>{setForm({...form, weightclass: e.target.value})}}/>
                         {/* <div>
                             <input type="text" name="wins" placeholder="Wins" onChange={(e)=>{setForm({...form, wins: e.target.value})}}/> 
                             <input type="text" name="losses" placeholder="Losses" onChange={(e)=>{setForm({...form, losses: e.target.value})}}/> 
                             <input type="text" name="draws" placeholder="Draws" onChange={(e)=>{setForm({...form, draws: e.target.value})}}/>
                         </div> */}
-                        <input type="text" name="image" placeholder="Image Link" onChange={(e)=>{setForm({...form, image: e.target.value})}}/>
+                        <input className="input" type="text" name="image" placeholder="Image Link" onChange={(e)=>{setForm({...form, image: e.target.value})}}/>
                     </div>                    
                     <button type="submit">UPLOAD</button>
                     <button type="button" onClick={toggleSubmit}>BACK</button>
