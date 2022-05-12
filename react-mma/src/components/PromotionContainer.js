@@ -11,10 +11,15 @@ const PromotionContainer = () => {
     }, [])
 
     console.log(promotion)
-    return (
-        <div>
-            
-                
-        </div>
-    )}
+    return(
+        promotion.map((element) => {
+            return (
+                <div>
+                    <Promotion element={element} />
+                </div>
+                    
+            )
+        })
+    )
+}
 export default PromotionContainer

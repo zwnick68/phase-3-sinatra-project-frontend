@@ -1,4 +1,4 @@
-import {React,useState} from 'react'
+import {React} from 'react'
 
 const Promotion = ({element}) => {
     return(
@@ -6,7 +6,7 @@ const Promotion = ({element}) => {
             <h1>{element.name}</h1>
             <img src={element.image} />
             {
-                element.promotions.fighters.map((el) => {
+                element.fighters.map((el) => {
                     return (
                         <div>
                             <h2>{el.name}</h2>
