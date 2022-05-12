@@ -14,7 +14,7 @@ const FighterContainer = () => {
     })
     useEffect(() => {
         (async() => {
-            let req = await fetch('http://localhost:9292/')
+            let req = await fetch('http://localhost:9292/fighters')
             let res = await req.json()
             setFighters(res.Fighters)
         })()   
@@ -29,7 +29,7 @@ const FighterContainer = () => {
             })}
             <form onSubmit={async(e)=> {
                 e.preventDefault()
-                let req = await fetch('http://localhost:9292/', {
+                let req = await fetch('http://localhost:9292/fighters', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(form)

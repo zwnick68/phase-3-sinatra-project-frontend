@@ -22,7 +22,7 @@ const HomePage = () => {
         <div>
         <NavBar onPageChange={setPage}/>
         <Switch>
-            <Route  exact path= '/'> 
+            <Route  exact path= '/fighters'> 
                 <FighterContainer />
             </Route>
             <Route path= '/managers'>

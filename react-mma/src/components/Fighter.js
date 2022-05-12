@@ -15,7 +15,7 @@ const Fighter = ({element,setFighters}) => {
     })
     
     const deleteFighter = async () => {
-       let req = await fetch(`http://localhost:9292/${element.id}`, {
+       let req = await fetch(`http://localhost:9292/fighters/${element.id}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'},
         })
@@ -39,7 +39,7 @@ const Fighter = ({element,setFighters}) => {
             <button onClick={deleteFighter}>Remove Fighter</button>
             <form className="update-form" onSubmit={async(e)=>{
                 e.preventDefault()
-                let req = await fetch(`http://localhost:9292/${element.id}`, {
+                let req = await fetch(`http://localhost:9292/fighters/${element.id}`, {
                     method: 'PATCH',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(fighterUpdate)
