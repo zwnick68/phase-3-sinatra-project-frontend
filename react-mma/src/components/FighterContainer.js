@@ -14,7 +14,7 @@ const FighterContainer = () => {
     })
     useEffect(() => {
         (async() => {
-            let req = await fetch('http://localhost:9292')
+            let req = await fetch('http://localhost:9292/')
             let res = await req.json()
             setFighters(res.Fighters)
         })()   
@@ -33,9 +33,16 @@ const FighterContainer = () => {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(form)
+                    //     {
+                    //     name: form.name,
+                    //     height: form.height,
+                    //     reach: form.reach,
+                    //     weightclass: form.weightclass,
+                    //     image: form.image
+                    // })
                 })
                 let res = await req.json()
-                setFighters(prevState => [...prevState, res] )
+                setFighters((prevState) => [...prevState, res] )
             }}>
                 <div>
                     <h1>ADD A FIGHTER</h1>
