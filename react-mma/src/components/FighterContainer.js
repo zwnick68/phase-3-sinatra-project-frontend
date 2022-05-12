@@ -62,7 +62,8 @@ const FighterContainer = () => {
                         </div> */}
                         <input type="text" name="image" placeholder="Image Link" onChange={(e)=>{setForm({...form, image: e.target.value})}}/>
                     </div>                    
-                    <button type="submit" onClick={toggleSubmit}>UPLOAD</button>
+                    <button type="submit">UPLOAD</button>
+                    <button type="button" onClick={toggleSubmit}>BACK</button>
                     
                 </form> : <button onClick={toggleSubmit}>ADD</button>
             }
