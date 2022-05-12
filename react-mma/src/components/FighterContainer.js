@@ -12,6 +12,10 @@ const FighterContainer = () => {
         draws: 0,
         image: ''
     })
+    const [submitModalVisible, setSubmitModalVisible] = useState(false)
+    const toggleSubmit = () => {
+        setSubmitModalVisible(!submitModalVisible)
+    }
     useEffect(() => {
         (async() => {
             let req = await fetch('http://localhost:9292/fighters')
@@ -27,39 +31,41 @@ const FighterContainer = () => {
                     <Fighter fighters={fighters} setFighters={setFighters} element={element} />
                 )
             })}
-            <form onSubmit={async(e)=> {
-                e.preventDefault()
-                let req = await fetch('http://localhost:9292/fighters', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(form)
-                    //     {
-                    //     name: form.name,
-                    //     height: form.height,
-                    //     reach: form.reach,
-                    //     weightclass: form.weightclass,
-                    //     image: form.image
-                    // })
-                })
-                let res = await req.json()
-                setFighters((prevState) => [...prevState, res] )
-            }}>
-                <div>
-                    <h1>ADD A FIGHTER</h1>
-                    <input type="text" name="name" placeholder="Name" onChange={(e)=>{setForm({...form, name: e.target.value})}}/>
-                    <input type="text" name="height" placeholder="Height" onChange={(e)=>{setForm({...form, height: e.target.value})}}/>
-                    <input type="text" name="reach" placeholder="Reach" onChange={(e)=>{setForm({...form, reach: e.target.value})}}/>
-                    <input type="text" name="weightclass" placeholder="Weightclass" onChange={(e)=>{setForm({...form, weightclass: e.target.value})}}/>
-                    {/* <div>
-                        <input type="text" name="wins" placeholder="Wins" onChange={(e)=>{setForm({...form, wins: e.target.value})}}/> 
-                        <input type="text" name="losses" placeholder="Losses" onChange={(e)=>{setForm({...form, losses: e.target.value})}}/> 
-                        <input type="text" name="draws" placeholder="Draws" onChange={(e)=>{setForm({...form, draws: e.target.value})}}/>
-                    </div> */}
-                    <input type="text" name="image" placeholder="Image Link" onChange={(e)=>{setForm({...form, image: e.target.value})}}/>
-                </div>
-                <button type="submit">UPLOAD</button>
-
-            </form>
+            <h1>ADD A FIGHTER</h1>
+            {
+                submitModalVisible ?  <form onSubmit={async(e)=> {
+                    e.preventDefault()
+                    let req = await fetch('http://localhost:9292/fighters', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(form)
+                        //     {
+                        //     name: form.name,
+                        //     height: form.height,
+                        //     reach: form.reach,
+                        //     weightclass: form.weightclass,
+                        //     image: form.image
+                        // })
+                    })
+                    let res = await req.json()
+                    setFighters((prevState) => [...prevState, res] )
+                }}>
+                    <div>
+                        <input type="text" name="name" placeholder="Name" onChange={(e)=>{setForm({...form, name: e.target.value})}}/>
+                        <input type="text" name="height" placeholder="Height" onChange={(e)=>{setForm({...form, height: e.target.value})}}/>
+                        <input type="text" name="reach" placeholder="Reach" onChange={(e)=>{setForm({...form, reach: e.target.value})}}/>
+                        <input type="text" name="weightclass" placeholder="Weightclass" onChange={(e)=>{setForm({...form, weightclass: e.target.value})}}/>
+                        {/* <div>
+                            <input type="text" name="wins" placeholder="Wins" onChange={(e)=>{setForm({...form, wins: e.target.value})}}/> 
+                            <input type="text" name="losses" placeholder="Losses" onChange={(e)=>{setForm({...form, losses: e.target.value})}}/> 
+                            <input type="text" name="draws" placeholder="Draws" onChange={(e)=>{setForm({...form, draws: e.target.value})}}/>
+                        </div> */}
+                        <input type="text" name="image" placeholder="Image Link" onChange={(e)=>{setForm({...form, image: e.target.value})}}/>
+                    </div>                    
+                    <button type="submit" onClick={toggleSubmit}>UPLOAD</button>
+                    
+                </form> : <button onClick={toggleSubmit}>ADD</button>
+            }
         </div>
     )}
 export default FighterContainer
