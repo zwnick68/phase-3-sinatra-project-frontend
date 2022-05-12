@@ -33,7 +33,7 @@ const FighterContainer = () => {
             })}
             <h1>ADD A FIGHTER</h1>
             {
-                submitModalVisible ?  <form onSubmit={async(e)=> {
+                submitModalVisible ?  <form className="form" onSubmit={async(e)=> {
                     e.preventDefault()
                     let req = await fetch('http://localhost:9292/fighters', {
                         method: 'POST',

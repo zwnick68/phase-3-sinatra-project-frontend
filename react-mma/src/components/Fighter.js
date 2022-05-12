@@ -43,7 +43,7 @@ const Fighter = ({element,setFighters}) => {
             <h3>Record: {element.wins}-{element.losses}-{element.draws}</h3>
             <button onClick={deleteFighter}>Remove Fighter</button>
             {
-                updateModalVisible ? <form className="update-form" onSubmit={async(e)=>{
+                updateModalVisible ? <form className="form" onSubmit={async(e)=>{
                     e.preventDefault()
                     let req = await fetch(`http://localhost:9292/fighters/${element.id}`, {
                         method: 'PATCH',
@@ -55,20 +55,34 @@ const Fighter = ({element,setFighters}) => {
                     setFighters((prevState) => [...prevState, res])
                     toggleUpdate()
                 }}>
-                   <input type="text" name="name" placeholder="name" onChange={(e)=>{setFighterUpdate({...fighterUpdate, name: e.target.value})}}/> 
-                   <input type="text" name="height" placeholder="height" onChange={(e)=>{setFighterUpdate({...fighterUpdate, height: e.target.value})}}/>
-                   <input type="text" name="reach" placeholder="reach" onChange={(e)=>{setFighterUpdate({...fighterUpdate, reach: e.target.value})}}/>
-                   <input type="text" name="weightclass" placeholder="weightclass" onChange={(e)=>{setFighterUpdate({...fighterUpdate, weightclass: e.target.value})}}/>
-                   <div>
-                        <input type="text" name="wins" placeholder="wins" onChange={(e)=>{setFighterUpdate({...fighterUpdate, wins: e.target.value})}}/>
-    
-                        <input type="text" name="losses" placeholder="losses" onChange={(e)=>{setFighterUpdate({...fighterUpdate, losses: e.target.value})}}/>
-    
-                        <input type="text" name="draws" placeholder="draws" onChange={(e)=>{setFighterUpdate({...fighterUpdate, draws: e.target.value})}}/>
+                    <div className="form-div">
+                        <video className="background-video" autoPlay muted loop poster=''>
+                            <source src="../Weigh-in.mp4" type="video/mp4"></source>
+                        </video>
+                        <input className="input" type="text" name="name" placeholder="name" onChange={(e)=>{setFighterUpdate({...fighterUpdate, name: e.target.value})}}/> 
+                        <input className="input" type="text" name="height" placeholder="height" onChange={(e)=>{setFighterUpdate({...fighterUpdate, height: e.target.value})}}/>
+                        <input className="input" type="text" name="reach" placeholder="reach" onChange={(e)=>{setFighterUpdate({...fighterUpdate, reach: e.target.value})}}/>
+                        <input className="input" type="text" name="weightclass" placeholder="weightclass" onChange={(e)=>{setFighterUpdate({...fighterUpdate, weightclass: e.target.value})}}/>
+                    
+                        <input className="input" type="text" name="wins" placeholder="wins" onChange={(e)=>{setFighterUpdate({...fighterUpdate, wins: e.target.value})}}/>
+        
+                        <input className="input" type="text" name="losses" placeholder="losses" onChange={(e)=>{setFighterUpdate({...fighterUpdate, losses: e.target.value})}}/>
+        
+                        <input className="input" type="text" name="draws" placeholder="draws" onChange={(e)=> {setFighterUpdate({...fighterUpdate, draws: e.target.value})}}/>
+        
+                        <input className="input" type="text" name="image" placeholder="new image" onChange={(e)=>{setFighterUpdate({...fighterUpdate, image: e.target.value})}}/>
+                        <div className="bttn-div">
+                            <button type="submit">UPDATE</button>
+                            <button type="button" onClick={toggleUpdate}>BACK</button>
+
+                        </div>  
+                        
                     </div>
-                    <input type="text" name="image" placeholder="new image" onChange={(e)=>{setFighterUpdate({...fighterUpdate, image: e.target.value})}}/>
-                    <button type="submit">UPDATE</button>
-                </form> : <button onClick={toggleUpdate}>UPDATE STATS</button>
+                
+                </form> : <button onClick={toggleUpdate((e)=> {
+                    e.preventDefault()
+                }
+                )}>UPDATE STATS</button>
             }
 
             
