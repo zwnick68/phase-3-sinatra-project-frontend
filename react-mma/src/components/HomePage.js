@@ -8,7 +8,7 @@ import { Switch, Route } from "react-router-dom";
 
 
 const HomePage = () => {
-    // let [data, setData] = useState([])
+    // const [data, setData] = useState([])
     let [page, setPage] = useState('/')
     // useEffect(() => {
     //  (async() => {
@@ -23,7 +23,7 @@ const HomePage = () => {
         <NavBar onPageChange={setPage}/>
         <Switch>
             <Route  exact path= '/'> 
-                <FighterContainer/>
+                <FighterContainer />
             </Route>
             <Route path= '/managers'>
                 <ManagerContainer/>

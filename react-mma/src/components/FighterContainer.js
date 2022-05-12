@@ -24,7 +24,7 @@ const FighterContainer = () => {
         <div>
             {fighters.map((element) => {
                 return(
-                    <Fighter element={element} />
+                    <Fighter fighters={fighters} setFighters={setFighters} element={element} />
                 )
             })}
             <form onSubmit={async(e)=> {
