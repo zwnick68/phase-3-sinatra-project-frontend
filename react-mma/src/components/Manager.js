@@ -3,6 +3,7 @@ import {React} from 'react'
 const Manager = ({element}) => {
     return(
         <div>
+            <h1>Manager</h1>
             <h1>{element.name}</h1>
             <img className='manager-images' src={element.image} />
             <h1>Fighters:</h1>

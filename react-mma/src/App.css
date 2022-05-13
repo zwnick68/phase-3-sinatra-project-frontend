@@ -18,9 +18,12 @@ h1 {
   font-style: oblique;
   color: antiquewhite;
 }
-
+h2 {
+  font-style: oblique;
+  color: brown;
+}
 h3 {
-  color:antiquewhite;
+  color: yellowgreen;
   font-style: oblique;
 }
 
@@ -29,12 +32,12 @@ h3 {
    height:300px;
 }
 .promotion-images {
-  width:400px;
+  width:500px;
   height:400px;
 }
 
 .manager-images {
-  width:200px;
+  width:400px;
   height:300px;
 }
 

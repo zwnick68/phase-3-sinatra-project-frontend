@@ -3,7 +3,6 @@ import {React} from 'react'
 const Promotion = ({element}) => {
     return(
         <div>
-            <h1>{element.name}</h1>
             <img className='promotion-images' src={element.image} />
             {
                 element.fighters.map((el) => {
