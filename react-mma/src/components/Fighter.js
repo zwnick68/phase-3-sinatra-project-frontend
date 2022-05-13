@@ -70,7 +70,7 @@ const Fighter = ({element,setFighters}) => {
                                 })
                                 let res = req.json()
                                 setFighterUpdate(res)
-                                setFighters((prevState) => [...prevState, res])
+                                // setFighters((prevState) => [...prevState, res])
                                 toggleUpdate()
                             }}>UPDATE</button>
                             <button className="button" type="button" onClick={toggleUpdate}>BACK</button>

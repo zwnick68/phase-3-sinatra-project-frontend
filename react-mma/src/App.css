@@ -105,6 +105,8 @@ h3 {
   justify-content: left;
   width: 245px;
   flex-direction: column;
+  padding-top: 1%;
+  padding-left: 1%;
   
 }
 
