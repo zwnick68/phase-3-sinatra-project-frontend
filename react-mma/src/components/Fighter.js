@@ -41,7 +41,7 @@ const Fighter = ({element,setFighters}) => {
             <h3>{element.weightclass}</h3>
             <h3>Height: {element.height} in. Reach: {element.reach} in.</h3>
             <h3>Record: {element.wins}-{element.losses}-{element.draws}</h3>
-            <button onClick={deleteFighter}>Remove Fighter</button>
+            <button className="button" onClick={deleteFighter}>Remove Fighter</button>
             {
                 updateModalVisible ? 
                     <div className="form-div">
@@ -61,7 +61,7 @@ const Fighter = ({element,setFighters}) => {
         
                         <input className="input" type="text" name="image" placeholder="new image" onChange={(e)=>{setFighterUpdate({...fighterUpdate, image: e.target.value})}}/>
                         <div className="bttn-div">
-                            <button onClick={async()=>{
+                            <button className='button' onClick={async()=>{
                     
                                 let req = await fetch(`http://localhost:9292/fighters/${element.id}`, {
                                     method: 'PATCH',
@@ -73,11 +73,11 @@ const Fighter = ({element,setFighters}) => {
                                 setFighters((prevState) => [...prevState, res])
                                 toggleUpdate()
                             }}>UPDATE</button>
-                            <button type="button" onClick={toggleUpdate}>BACK</button>
+                            <button className="button" type="button" onClick={toggleUpdate}>BACK</button>
 
                         </div>  
                         
-                    </div> : <button onClick={toggleUpdate}>UPDATE STATS</button>
+                    </div> : <button className="button" onClick={toggleUpdate}>UPDATE STATS</button>
             }
 
             

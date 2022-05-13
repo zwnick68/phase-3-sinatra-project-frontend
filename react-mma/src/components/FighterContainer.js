@@ -25,7 +25,7 @@ const FighterContainer = () => {
        }, [])
        console.log(fighters)
     return (
-        <div>
+        <div className="container-div">
             {fighters.map((element) => {
                 return(
                     <Fighter fighters={fighters} setFighters={setFighters} element={element} />
@@ -65,10 +65,10 @@ const FighterContainer = () => {
                         </div> */}
                         <input className="input" type="text" name="image" placeholder="Image Link" onChange={(e)=>{setForm({...form, image: e.target.value})}}/>
                     </div>                    
-                    <button type="submit">UPLOAD</button>
-                    <button type="button" onClick={toggleSubmit}>BACK</button>
+                    <button className="button" type="submit">UPLOAD</button>
+                    <button className="button" type="button" onClick={toggleSubmit}>BACK</button>
                     
-                </form> : <button onClick={toggleSubmit}>ADD</button>
+                </form> : <button className="button" onClick={toggleSubmit}>ADD</button>
             }
         </div>
     )}
