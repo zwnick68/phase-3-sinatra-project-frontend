@@ -47,8 +47,8 @@ const FighterContainer = () => {
                         //     image: form.image
                         // })
                     })
-                    let res = await req.json()
-                    setFighters((prevState) => [...prevState, res] )
+                    // let res = await req.json()
+                    // setFighters((prevState) => [...prevState, res] )
                 }}>
                     <div>
                     <video className="background-video" autoPlay muted loop poster=''>

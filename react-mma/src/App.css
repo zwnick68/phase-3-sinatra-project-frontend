@@ -88,3 +88,22 @@ h3 {
   z-index: 1;
   
 }
+
+.nav-link {
+  font-style: oblique;
+  font-size: 30px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  
+}
+.nav-bar-div {
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  float: left;
+  justify-content: left;
+  width: 245px;
+  flex-direction: column;
+  
+}
